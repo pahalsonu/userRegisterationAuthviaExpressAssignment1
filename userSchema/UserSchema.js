@@ -30,6 +30,6 @@ const AppmonUserSchema = new mongoose.Schema({
 
 //lets create collection
 
-const AppmonTrial = new mongoose.model("AppmonTrial", AppmonUserSchema)
+const Model = new mongoose.model("Model", AppmonUserSchema)
 
-module.exports = AppmonTrial;
+module.exports = Model;
