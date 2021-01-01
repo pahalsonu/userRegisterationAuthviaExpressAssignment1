@@ -25,7 +25,7 @@ app.post('/register', [
     async (req, res) => {
         try {
             let { Password, ConfirmPassword } = req.body;
-           
+
             if (Password !== ConfirmPassword) {
                 console.log('Password and Confirm Password Must be Same')
             }
@@ -52,7 +52,7 @@ app.post('/register', [
                 emailtoken: token,
                 Password: hashedPassword
             })
-           
+
             await registerAppmonCustomer.save();
 
 
@@ -90,7 +90,7 @@ app.post('/register', [
     });
 
 
-    //middleware to verify user by mail token
+//middleware to verify user by mail token
 app.get('/verify/:emailtok', async (req, res) => {
     try {
         const emailtoken = req.params.emailtok;
@@ -111,14 +111,17 @@ app.get('/verify/:emailtok', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     try {
-        let findUser = req.body.email;
-        let user = await Model.findOne({ findUser });
+        let email = req.body.email;
+        let user = await Model.findOne({ email });
+
+        let hashedPassword = user.Password
 
         if (!user) {
             res.status(201).json({ "User": "User not Registered" })
         }
         //verify entered pass
-        const match = await bcrypt.compare(req.body.password, user.hashedPassword);
+        const match = await bcrypt.compare(req.body.Password, hashedPassword);
+
         if (!match) {
             res.status(201).json({ "password": " not matched" })
         }
@@ -145,11 +148,11 @@ app.post('/login', async (req, res) => {
 app.get('/', (req, res) => {
     res.render("index")
 });
-app.get('/register', function (req, res) {
-    res.render('register')
+app.get('/register.html', function (req, res) {
+    res.render('register.html')
 });
-app.get('/login', function (req, res) {
-    res.render('login')
+app.get('/login.html', function (req, res) {
+    res.render('login.html')
 });
 
 app.listen(PORT, () => {
