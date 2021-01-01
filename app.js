@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 var jwt = require('jsonwebtoken');
 const Model = require("./userSchema/UserSchema")
 const PORT = process.env.port || 3000;
-
+const config = require("./config")
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 //mongo db conn
@@ -25,7 +25,7 @@ app.post('/register', [
     async (req, res) => {
         try {
             let { Password, ConfirmPassword } = req.body;
-            console.log(Password, ConfirmPassword)
+           
             if (Password !== ConfirmPassword) {
                 console.log('Password and Confirm Password Must be Same')
             }
@@ -52,7 +52,7 @@ app.post('/register', [
                 emailtoken: token,
                 Password: hashedPassword
             })
-            console.log(token)
+           
             await registerAppmonCustomer.save();
 
 
@@ -63,13 +63,13 @@ app.post('/register', [
                 host: 'smtp.gmail.com',
                 auth: {
                     user: 'pahalsonu10@gmail.com',
-                    pass: 'Sonusonu@99'
+                    pass: `${config.pass}`
                 }
             }));
 
             var mailOptions = {
                 from: 'pahalsonu10@gmail.com',
-                to: 'pahalsonu10@gmail.com',
+                to: `${req.body.email}`,
                 subject: 'Please click on link to verify!',
                 text: `http://localhost:3000/verify/${token}`
             };
