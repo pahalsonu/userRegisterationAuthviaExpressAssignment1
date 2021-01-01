@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost:27017/AppmonRegTrial2",
     useCreateIndex:true
 }
 ).then(()=>{
-    console.log('Mongo Db is Succefully Connected');
+    console.log('Mongo Db is Succefully Connected  💪  💪 ');
 }).catch((err)=>{
 console.log(err)
 })

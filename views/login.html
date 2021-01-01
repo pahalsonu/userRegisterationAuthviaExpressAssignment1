@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>User Registration</title>
+    <title>User LOG IN</title>
 
     <!-- Icons font CSS-->
     <link
@@ -38,23 +38,9 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Please Fill All Mandotory Fields</h2>
-                    <form action="/register" method="POST">
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">first name</label>
-                                    <input class="input--style-4" type="text" required minlength="2" maxlength="6"
-                                        name="first_name">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">last name</label>
-                                    <input class="input--style-4" type="text" name="last_name">
-                                </div>
-                            </div>
-                        </div>
+                    <h2 class="title">LOG IN</h2>
+                    <form action="/login" method="POST">
+
 
                         <div class="row row-space">
                             <div class="col-2">
@@ -64,26 +50,12 @@
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Phone Number</label>
-                                    <input class="input--style-4" required minlength="10" maxlength="10" type="text"
-                                        name="phone">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input class="input--style-4" required minlength="6" maxlength="6" type="password"
-                                        name="Password">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Confrim Password</label>
-                                    <input class="input--style-4" required minlength="6" maxlength="6" type="password"
-                                        name="ConfirmPassword">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">Password</label>
+                                        <input class="input--style-4" required minlength="6" maxlength="6"
+                                            type="password" name="Password">
+                                    </div>
                                 </div>
                             </div>
                         </div>

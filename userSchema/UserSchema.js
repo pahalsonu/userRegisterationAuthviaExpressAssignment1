@@ -1,31 +1,38 @@
 const mongoose = require('mongoose');
 
 const AppmonUserSchema = new mongoose.Schema({
-    first_name :{
-        type : String,
-        required : true
+    first_name: {
+        type: String,
+        required: true
     },
-    last_name :{
-        type : String,
+    last_name: {
+        type: String,
     },
-    email :{
-        type : String,
-        required : true,
-        unique : true
+    email: {
+        type: String,
+        required: true,
+        unique: true
 
     },
-    phone :{
-        type : Number,
-        required : true
+    emailtoken: {
+        type: String,
+        required: true,
+        
+
     },
-    Password :{
-        type : String,
-        required : true
+    phone: {
+        type: Number,
+        required: true
     },
-    ConfirmPassword :{
-        type : String,
-        required : true
+    Password: {
+        type: String,
+        required: true
+    },
+    active: {
+        type: Boolean,
+        default: false
     }
+
 });
 
 //lets create collection
